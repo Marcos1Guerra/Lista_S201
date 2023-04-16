@@ -1,0 +1,47 @@
+class Televisao{
+  constructor(modelo){
+    this.modelo = modelo;
+    this.volume = 0;
+    this.canal = "canal";
+  }
+
+  aumentar_volume(volume){
+    this.volume += volume;
+  }
+  
+  diminuir_volume(volume){
+    this.volume -= volume;
+  }
+
+  trocar_canal(novo_c){
+    this.canal = novo_c;
+  }
+
+  printInfo(){
+    console.log(`Modelo: ${this.modelo} , Volume: ${this.volume} e o Canal: ${this.canal} `);
+  }
+}
+
+
+class SmartTV extends Televisao{
+  constructor(modelo, volume, canal, internet){
+    super(modelo, volume, canal);
+    this.internet = false;
+  }
+
+  conectar_internet(){
+    this.internet = true;
+  }
+}
+
+let televisao = new Televisao("LG");
+televisao.aumentar_volume(70);
+televisao.diminuir_volume(27);
+televisao.trocar_canal("Canal#1");
+televisao.printInfo();
+
+let smart = new SmartTV("Samsung");
+smart.aumentar_volume(60);
+smart.diminuir_volume(14);
+smart.trocar_canal("Canal#2");
+smart.printInfo();
